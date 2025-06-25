@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Formulário Sensor Ville</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background-color: #dbeeff; /* Fundo fora da caixa: azul bem claro */
+    }
+
+    header {
+      background-color: #004aad;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header img {
+      height: 70px;
+    }
+
+    main {
+      max-width: 500px;
+      margin: 2rem auto;
+      background-color: #e6f2ff; /* Fundo da caixa do formulário */
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #004aad;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 1rem;
+      margin-bottom: 0.3rem;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      padding: 0.8rem;
+      background-color: #00b2ff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #008dd1;
+    }
+
+    #dropArea {
+      border: 2px dashed #ccc;
+      padding: 1rem;
+      text-align: center;
+      cursor: pointer;
+      background-color: white;
+    }
+
+    #nomeArquivo {
+      margin-top: 0.5rem;
+      font-style: italic;
+      color: #555;
+    }
+
+    #erroMensagem {
+      color: red;
+      margin-top: 1rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Logo Sensor Ville" />
+  </header>
+
+  <main>
+    <h1>Formulário de Dados</h1>
+    <form id="contatoForm" enctype="multipart/form-data">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+  <label for="mensagem">Mensagem:</label>
+  <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+  <div id="contadorMensagem" style="text-align: right; font-size: 1rem; font-weight: bold; color: #004aad; margin-top: 4px;">  0/100 </div>
+
+
+      <label for="imagem">Imagem (opcional):</label>
+      <div id="dropArea">
+        <span id="dropMensagem">Arraste uma imagem aqui ou clique para selecionar</span>
+        <div id="nomeArquivo"></div>
+        <input type="file" id="imagem" name="imagem" accept="image/*" style="display: none;" />
+      </div>
+
+      <div id="erroMensagem">
+        * Nome ou email já cadastrados! Digite novamente.
+      </div>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </main>
+
+  <script src="index.js"></script>
+</body>
+</html>
